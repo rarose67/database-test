@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${symbols} and ${symbols.size()}">no symbol :(</p>
+
+
+<ul th:if="${symbols} and ${symbols.size()}">
+    <li th:each="symbol : ${symbols}" th:text="${symbol}"></li>
+</ul>
+
+<nav>
+    <a href="/symbol">Stock List</a>  |
+    <a href="/symbol/add">Add a Stock</a>  |
+    <a href="/search">Search Stocks</a>
+    <!-- <a href="/symbol/edit">Edit a symbol</a> -->
+</nav>
+
+</body>
+</html>
