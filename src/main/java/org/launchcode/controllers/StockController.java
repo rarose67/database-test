@@ -33,7 +33,7 @@ public class StockController {
 
     public void printSymbols()
     {
-        System.out.println("\nStocks:\n");
+        System.out.println("\nControler Stocks:\n");
         for (Stock stock : databaseService.findDividend(1.5, -1))
         {
             System.out.println("Symbol: " + stock.getSymbol() + ", " + stock.getName());
