@@ -9,12 +9,20 @@ import java.util.List;
 @Service
 public class DatabaseServiceBean implements DatabaseService
 {
+    private static DatabaseServiceBean instance;
 
     @Autowired
     private StockDao stockDao;
 
     @Autowired
     private UserDao userDao;
+
+    public static DatabaseServiceBean getInstance() {
+        if (instance == null) {
+            instance = new DatabaseServiceBean();
+        }
+        return instance;
+    }
 
     public List<Stock> findDividend(double dividend, int compare)
     {

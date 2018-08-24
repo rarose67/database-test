@@ -43,8 +43,6 @@ public class Stock {
     @Transient
     private double weekStartPrice;
 
-    @Autowired
-    private static DatabaseService databaseService;
 
     public Stock() {
         this.lastDividendDate = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -144,8 +142,10 @@ public class Stock {
 
     public static void printSymbols()
     {
+        DatabaseServiceBean dsBean = DatabaseServiceBean.getInstance();
+
         System.out.println("\nStocks:\n");
-        for (Stock stock : databaseService.findDividend(1.5, -1))
+        for (Stock stock : dsBean.findDividend(1.5, -1))
         {
             System.out.println("Symbol: " + stock.getSymbol() + ", " + stock.getName());
         }
