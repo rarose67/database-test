@@ -19,6 +19,9 @@ public class Test {
    @Autowired
    private StockDao stockDao;
 
+    public Test()
+    {
+    }
 
     public void printSymbols()
     {

@@ -30,6 +30,6 @@ public class HomeController {
 
         test.printSymbols();
 
-        return "redirect:/stock";
+        return "redirect:/stock/list";
     }
 }

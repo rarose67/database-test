@@ -15,6 +15,8 @@ public interface StockDao extends CrudRepository<Stock, Integer> {
 
     public List<Stock> findBySymbol(String symbol);
 
+    public List<Stock> findAll();
+
     @Query("SELECT s FROM Stock s WHERE s.name LIKE %:name%")
     public List<Stock> findByName(@Param("name") String name);
 

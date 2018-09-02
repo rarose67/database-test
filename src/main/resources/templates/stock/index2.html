@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container" th:attr="onload='myFunction2(\'' + ${title} + '\')'">
+
+<!-- <body class="container" onload="myFunction2('My stocks')"> -->
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${stocks} and ${stocks.size()}">no stock :(</p>
+<p th:each="stock : ${stocks}" th:text="${stock.symbol}"></p>
+
+<hr />
+
+<table id="table" class="table" th:if="${stocks} and ${stocks.size()}">
+
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Dividend</th>
+        <th>Yield</th>
+        <th>Last Dividend Date</th>
+    </tr>
+
+    <tr class="rep-row" th:each="stock : ${stocks}">
+       <!-- <td>
+            <table> -->
+                <tr>
+                    <td th:text="${stock.symbol}"></td>
+                    <td th:text="${stock.name}"></td>
+                    <td th:text="${stock.price}"></td>
+                    <td th:text="${stock.dividend}"></td>
+                    <td th:text="${stock.yield}"></td>
+                    <td th:text="${stock.showDate()}"></td>
+                </tr>
+                <tr>
+                    <td th:text="${stock.symbol + '!!'}"></td>
+                    <td th:text="${stock.name + '!!'}"></td>
+                    <td th:text="${'$' + stock.price}"></td>
+                    <td th:text="${'$' + stock.dividend}"></td>
+                    <td th:text="${stock.yield + '%'}"></td>
+                    <td th:text="${stock.showDate()}"></td>
+                </tr>
+          <!--  </table>
+        </td> -->
+    </tr>
+
+</table>
+
+<nav>
+    <a href="/stock">Stock List</a>  |
+    <a href="/stock/list">Symbol List</a>  |
+    <a href="/stock/add">Add a Stock</a>  |
+    <a href="/search">Search Stocks</a>
+    <!-- <a href="/stock/edit">Edit a stock</a> -->
+</nav>
+
+</body>
+</html>

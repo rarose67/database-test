@@ -41,8 +41,8 @@ public class StockController {
     }
 
     // Request path: /stock
-    @RequestMapping(value = "")
-    public String index(Model model)  {
+    @RequestMapping(value = "{page}")
+    public String index(Model model, @PathVariable int page)  {
 
         //@CookieValue(value = "user", defaultValue = "none") String username
         /**if(username.equals("none")) {
@@ -51,10 +51,29 @@ public class StockController {
 
         printSymbols();
 
-        model.addAttribute("stocks", stockdao.findAll());
+        if (page < 1)
+        {
+            page = 1;
+        }
+
+        int perpage = 3;
+        int max = stockdao.findAll().size();
+        int rangestart = ((page - 1) * perpage);
+        int rangeend = (page * perpage);
+
+        if (rangeend > max)
+        {
+            rangeend = max;
+        }
+
+        ArrayList<Stock> stockSubList = new ArrayList<>(
+                stockdao.findAll().subList(rangestart,rangeend));
+
+        //model.addAttribute("stocks", stockdao.findAll());
+        model.addAttribute("stocks", stockSubList);
         model.addAttribute("title", "My Stocks");
 
-        return "stock/index";
+        return "stock/index2";
     }
 
     @RequestMapping(value = "list")
