@@ -40,9 +40,29 @@ public class StockController {
         }
     }
 
+    @RequestMapping(value = "")
+    public String index(Model model)  {
+
+        //@CookieValue(value = "user", defaultValue = "none") String username
+        /**if(username.equals("none")) {
+         return "redirect:/user/login";
+         } */
+
+        printSymbols();
+
+        //ArrayList<Stock> stockSubList = new ArrayList<>(
+          //      stockdao.findAll());
+
+        model.addAttribute("stocks", stockdao.findAll());
+        //model.addAttribute("stocks", stockSubList);
+        model.addAttribute("title", "My Stocks");
+
+        return "stock/index3";
+    }
+
     // Request path: /stock
     @RequestMapping(value = "{page}")
-    public String index(Model model, @PathVariable int page)  {
+    public String page(Model model, @PathVariable int page)  {
 
         //@CookieValue(value = "user", defaultValue = "none") String username
         /**if(username.equals("none")) {
