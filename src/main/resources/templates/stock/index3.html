@@ -54,22 +54,22 @@
 </table>
 <hr />
 
-<input id="per-page" type="hidden" th:value="${perPage}" name="perpage" />
+<!-- <input id="per-page" type="hidden" th:value="${perPage}" name="perpage" /> -->
 <input id="cur-page" type="hidden" th:value="${page}" name="curpage" />
 <input id="max-items" type="hidden" th:value="${stocks.size()}" name="maxitems" />
 
 <label for="per-page-select"># per Page: </label>
-<select id="per-page-select"  name="perpageselect">
-<option text="2"
+<select id="per-page-select"  name="perpageselect" th:attr="onchange='myFunction(1)'">
+<option th:text="2"
         th:selected="${perPage == 2}"
         value="2"></option>
-<option text="3"
+<option th:text="3"
         th:selected="${perPage == 3}"
         value="3"></option>
-<option text="4"
+<option th:text="4"
         th:selected="${perPage == 4}"
         value="4"></option>
-<option text="5"
+<option th:text="5"
         th:selected="${perPage == 5}"
         value="5"></option>
 </select>

@@ -1,7 +1,7 @@
 function myFunction(current) {
     //var current = document.getElementById("cur-page").value;
     var max = document.getElementById("max-items").value;
-    var perPage = document.getElementById("per-page").value;
+    var perPage = document.getElementById("per-page-select").value;
     var pageList = document.getElementById("page-list");
     var pLength = pageList.childNodes.length;
     //var i, j;
