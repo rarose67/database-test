@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container">
+<body class="container" onload="myFunction()">
 
-<h1 th:text="${title}">Default Title</h1>
+<h1 id="title" th:attr="style='color:' + ${color} + ';'" th:text="${title}" onload="myFunction()">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 

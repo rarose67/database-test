@@ -50,12 +50,17 @@ public class StockController {
 
         printSymbols();
 
-        //ArrayList<Stock> stockSubList = new ArrayList<>(
-          //      stockdao.findAll());
+        ArrayList<Integer> pageNumbers = new ArrayList<>();
+        for (int i=0; i< stockdao.findAll().size(); i++)
+        {
+            pageNumbers.add(i+1);
+        }
 
         model.addAttribute("stocks", stockdao.findAll());
-        //model.addAttribute("stocks", stockSubList);
+        model.addAttribute("pageNums", pageNumbers);
         model.addAttribute("title", "My Stocks");
+        model.addAttribute("page", 1);
+        model.addAttribute("perPage", 2);
 
         return "stock/index3";
     }
@@ -106,6 +111,7 @@ public class StockController {
 
         model.addAttribute("symbols", stockdao.findSymbols());
         model.addAttribute("title", "My symbols");
+        model.addAttribute("color", "red");
 
         return "stock/list";
     }
