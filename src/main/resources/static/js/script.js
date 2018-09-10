@@ -67,7 +67,6 @@ function myFunction(current) {
     }
 
     pageList.innerHTML = html;
-    //window.alert(pageList.innerHTML);
 }
 
 function myFunction2(title) {
