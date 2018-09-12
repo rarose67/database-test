@@ -6,7 +6,9 @@
 
 <!-- <body class="container" onload="getPage(1, 3, false)"> -->
 
-<body class="container" th:attr="onload='myFunction(' + ${page} + ')'">
+<!-- <body class="container" th:attr="onload='myFunction3(' + ${page} + ')'"> -->
+
+<body class="container" th:attr="onload='myFunction3(1)'">
 
 <h1 th:text="${title}">Default Title</h1>
 
@@ -55,11 +57,11 @@
 <hr />
 
 <!-- <input id="per-page" type="hidden" th:value="${perPage}" name="perpage" /> -->
-<input id="cur-page" type="hidden" th:value="${page}" name="curpage" />
+<!-- <input id="cur-page" type="hidden" th:value="${page}" name="curpage" /> -->
 <input id="max-items" type="hidden" th:value="${stocks.size()}" name="maxitems" />
 
 <label for="per-page-select"># per Page: </label>
-<select id="per-page-select"  name="perpageselect" th:attr="onchange='myFunction(1)'">
+<select id="per-page-select"  name="perpageselect" th:attr="onchange='myFunction3(1)'">
 <option th:text="2"
         th:selected="${perPage == 2}"
         value="2"></option>
@@ -73,7 +75,9 @@
         th:selected="${perPage == 5}"
         value="5"></option>
 </select>
+<br />
 <ul id="page-list" class="pagination"></ul>
+<br />
 <nav>
     <a href="/stock">Stock List</a>  |
     <a href="/stock/list">Symbol List</a>  |

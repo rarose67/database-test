@@ -59,8 +59,8 @@ public class StockController {
         model.addAttribute("stocks", stockdao.findAll());
         model.addAttribute("pageNums", pageNumbers);
         model.addAttribute("title", "My Stocks");
-        model.addAttribute("page", 1);
-        model.addAttribute("perPage", 2);
+        //model.addAttribute("page", 1);
+        //model.addAttribute("perPage", 2);
 
         return "stock/index3";
     }
