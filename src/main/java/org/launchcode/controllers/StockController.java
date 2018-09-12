@@ -50,14 +50,16 @@ public class StockController {
 
         printSymbols();
 
+        /**
         ArrayList<Integer> pageNumbers = new ArrayList<>();
         for (int i=0; i< stockdao.findAll().size(); i++)
         {
             pageNumbers.add(i+1);
         }
+         */
 
         model.addAttribute("stocks", stockdao.findAll());
-        model.addAttribute("pageNums", pageNumbers);
+        //model.addAttribute("pageNums", pageNumbers);
         model.addAttribute("title", "My Stocks");
         //model.addAttribute("page", 1);
         //model.addAttribute("perPage", 2);
